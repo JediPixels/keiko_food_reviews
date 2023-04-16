@@ -5,11 +5,10 @@ import 'package:keiko_food_reviews/services/authentication_service.dart';
 import 'package:keiko_food_reviews/services/database_service.dart';
 
 class LoginRegisterInfo {
-  LoginRegisterInfo({
-    required this.buttonLoginRegisterEnabled,
-    required this.showLoginRegisterError,
-    required this.loginRegisterErrorMessage
-    });
+  LoginRegisterInfo(
+      {required this.buttonLoginRegisterEnabled,
+      required this.showLoginRegisterError,
+      required this.loginRegisterErrorMessage});
 
   bool buttonLoginRegisterEnabled;
   bool showLoginRegisterError;
@@ -21,9 +20,9 @@ class LoginRegisterLogic extends ChangeNotifier {
   bool _isPasswordOk = false;
   bool _isPasswordConfirmOk = false;
   final LoginRegisterInfo _loginRegisterInfo = LoginRegisterInfo(
-    buttonLoginRegisterEnabled: false,
-    showLoginRegisterError: false,
-    loginRegisterErrorMessage: '');
+      buttonLoginRegisterEnabled: false,
+      showLoginRegisterError: false,
+      loginRegisterErrorMessage: '');
 
   LoginRegisterInfo get loginRegisterInfo {
     return _loginRegisterInfo;
@@ -38,7 +37,7 @@ class LoginRegisterLogic extends ChangeNotifier {
   }
 
   void checkLoginEmailAndPassword(
-    {required String email, required String password}) {
+      {required String email, required String password}) {
     _loginRegisterInfo.showLoginRegisterError = false;
     _isEmailOk = Validators.email(email: email) ? true : false;
     _isPasswordOk = Validators.password(password: password) ? true : false;
@@ -47,18 +46,22 @@ class LoginRegisterLogic extends ChangeNotifier {
     notifyListeners();
   }
 
-  void checkRegisterEmailAndPasswordAndConfirm({
-    required String email,
-    required String password,
-    required String passwordConfirm}) {
-
+  void checkRegisterEmailAndPasswordAndConfirm(
+      {required String email,
+      required String password,
+      required String passwordConfirm}) {
     _loginRegisterInfo.showLoginRegisterError = false;
     _isEmailOk = Validators.email(email: email) ? true : false;
     _isPasswordOk = Validators.password(password: password) ? true : false;
-    _isPasswordConfirmOk = Validators.password(password: passwordConfirm)
-        ? true : false;
-    _loginRegisterInfo.buttonLoginRegisterEnabled =
-        _isEmailOk && _isPasswordOk && _isPasswordConfirmOk ? true : false;
+    _isPasswordConfirmOk =
+        Validators.password(password: passwordConfirm) ? true : false;
+    bool isPasswordConfirmedOk = password == passwordConfirm ? true : false;
+    _loginRegisterInfo.buttonLoginRegisterEnabled = _isEmailOk &&
+            _isPasswordOk &&
+            _isPasswordConfirmOk &&
+            isPasswordConfirmedOk
+        ? true
+        : false;
     notifyListeners();
   }
 
@@ -71,22 +74,22 @@ class LoginRegisterLogic extends ChangeNotifier {
   void login({required String email, required String password}) {
     loginRegisterInfo.buttonLoginRegisterEnabled
         ? AuthenticationService.signInWithEmailAndPassword(
-        email: email, password: password)
-        .then((uid) => uid)
-        .onError((error, stackTrace) {
-          showLoginErrorWithMessage(message: '$error');
-    }) : null;
+                email: email, password: password)
+            .then((uid) => uid)
+            .onError((error, stackTrace) {
+            showLoginErrorWithMessage(message: '$error');
+          })
+        : null;
   }
 
   void register({required String email, required String password}) {
     AuthenticationService.createUserWithEmailAndPassword(
-        email: email, password: password)
+            email: email, password: password)
         .then((uid) {
-          UserModel userModel = UserModel.initializeNewUserWithDefaultValues(
-              uid: uid!, email: email, providerId: 'password');
-
-          DatabaseService.addUser(userModel)
-          .then((value) => debugPrint('Success: $value'))
+      UserModel userModel = UserModel.initializeNewUserWithDefaultValues(
+          uid: uid!, email: email, providerId: 'password');
+      DatabaseService.addUser(userModel)
+          .then((value) => debugPrint('success: $value'))
           .onError((error, stackTrace) =>
               showLoginErrorWithMessage(message: '$error'));
     }).onError((error, stackTrace) {
