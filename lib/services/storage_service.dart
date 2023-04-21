@@ -26,18 +26,18 @@ class StorageService {
     return downloadURL;
   }
 
-  static Future<void> deletePhoto({required String? photoPath}) async {
+  static Future<void> deletePhoto({required String photoPath}) async {
     final Reference storageReferenceFromUrl =
-        FirebaseStorage.instance.refFromURL(photoPath!);
+        FirebaseStorage.instance.refFromURL(photoPath);
 
     try {
       await storageReferenceFromUrl
           .delete()
           .then((success) => debugPrint('Success'))
           .onError((error, stackTrace) =>
-              debugPrint('Error Deleting Photo: $error'));
+              debugPrint('Deleting Photo Error: $error'));
     } on Exception catch (error) {
-      debugPrint('Error Deleting Photo: $error');
+      debugPrint('Deleting Photo Error: $error');
     }
   }
 }
