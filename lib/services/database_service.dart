@@ -10,8 +10,9 @@ class DatabaseService {
         .collection(DatabaseCollections.users.name)
         .doc(userModel.uid)
         .withConverter<UserModel>(
-          fromFirestore: (snapshot, _) => UserModel.fromJson(snapshot.data()!),
-          toFirestore: (user, _) => user.toJson())
+            fromFirestore: (snapshot, _) =>
+                UserModel.fromJson(snapshot.data()!),
+            toFirestore: (user, _) => user.toJson())
         .set(userModel, SetOptions(merge: true))
         .then((_) => true)
         .onError((error, stackTrace) => false);
@@ -23,8 +24,9 @@ class DatabaseService {
         .collection('${DatabaseCollections.users.name}/$uid')
         .doc(uid)
         .withConverter(
-          fromFirestore: (snapshot, _) => UserModel.fromJson(snapshot.data()!),
-          toFirestore: (user, _) => user.toJson())
+            fromFirestore: (snapshot, _) =>
+                UserModel.fromJson(snapshot.data()!),
+            toFirestore: (user, _) => user.toJson())
         .get()
         .then((documentSnapshot) => documentSnapshot.data()!)
         .onError((error, stackTrace) => Future.error('$error'));
