@@ -81,7 +81,7 @@ class DatabaseService {
     if (reviewEditModel.photo.isEmpty &&
         originalPhotoUrl.isNotEmpty &&
         isPhotoChanged) {
-      // Remove photo
+      // Remove current photo
       await StorageService.deletePhoto(photoPath: originalPhotoUrl);
     } else if (reviewEditModel.photo.isNotEmpty &&
         originalPhotoUrl.isNotEmpty &&
@@ -95,11 +95,9 @@ class DatabaseService {
     } else if (reviewEditModel.photo.isNotEmpty &&
         originalPhotoUrl.isEmpty &&
         isPhotoChanged) {
-      // No original photo, new photo picked
+      // No original photo picked, only new photo to upload
       String downloadURL = await StorageService.uploadPhoto(
-        uid: reviewEditModel.uid,
-        file: file!,
-      );
+          uid: reviewEditModel.uid, file: file!);
       reviewEditModel = reviewEditModel.copyWith(photo: downloadURL);
     }
 
