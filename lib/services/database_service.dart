@@ -1,7 +1,4 @@
-import 'dart:html';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:keiko_food_reviews/helper/constants.dart';
@@ -94,6 +91,7 @@ class DatabaseService {
       // 2. Upload new photo
       String downloadURL = await StorageService.uploadPhoto(
           uid: reviewEditModel.uid, file: file!);
+      reviewEditModel = reviewEditModel.copyWith(photo: downloadURL);
     } else if (reviewEditModel.photo.isNotEmpty &&
         originalPhotoUrl.isEmpty &&
         isPhotoChanged) {
@@ -138,7 +136,7 @@ class DatabaseService {
         .collection(DatabaseCollections.reviews.name)
         .where('uid', isEqualTo: uid)
         .orderBy('reviewDate', descending: true)
-        .withConverter(
+        .withConverter<ReviewModel>(
             fromFirestore: (snapshot, _) {
               final reviewModel = ReviewModel.fromJson(snapshot.data()!);
               final reviewModelWithDocumentId =
