@@ -16,7 +16,7 @@ class ReviewEntryPhotoArguments {
 }
 
 class LocationArguments {
-  LocationArguments({required this.answer, required this.position});
+  LocationArguments({required this.answer, this.position});
 
   final bool answer;
   final Position? position;
