@@ -31,11 +31,13 @@ class ReviewEntryView extends StatelessWidget {
           IconButton(
             tooltip: 'Edit Review',
             onPressed: () {
-              Navigator.of(context).popAndPushNamed(ReviewEntryEdit.route,
-                  arguments: ReviewEntryArguments(
-                    reviewMode: ReviewMode.edit,
-                    reviewModel: reviewModel,
-                  ));
+              Navigator.of(context).popAndPushNamed(
+                ReviewEntryEdit.route,
+                arguments: ReviewEntryArguments(
+                  reviewMode: ReviewMode.edit,
+                  reviewModel: reviewModel,
+                ),
+              );
             },
             icon: const Icon(Icons.edit),
           ),
