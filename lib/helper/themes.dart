@@ -26,4 +26,6 @@ class ThemeColors {
   static const Color m3Baseline = Color(0xff6750a4);
   static const Color locationPin = Colors.lightBlue;
   static const Color error = Colors.red;
+  static Color washedOutWhite = Colors.white.withOpacity(0.3);
+  static Color washedOutBlack = Colors.black12;
 }
