@@ -57,6 +57,10 @@ class ReviewEntryEditRatingAffordability extends StatelessWidget {
               child: SegmentedButton<Affordability>(
                 style: ButtonStyle(
                     visualDensity: VisualDensity.compact,
+                    // If $$$$ goes to two lines - Add following Padding to zero
+                    padding: const MaterialStatePropertyAll(
+                      EdgeInsets.all(0.0),
+                    ),
                     side: MaterialStatePropertyAll(
                       BorderSide(
                         color: Theme.of(context).splashColor,
