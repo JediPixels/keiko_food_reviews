@@ -65,6 +65,7 @@ class ReviewEntryEditTextFields extends StatelessWidget {
         TextField(
           controller: _review,
           textInputAction: TextInputAction.newline,
+          maxLines: null,
           keyboardType: TextInputType.multiline,
           decoration: const InputDecoration(hintText: 'Review'),
           onTapOutside: (PointerDownEvent pointerDownEvent) {
