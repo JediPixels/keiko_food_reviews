@@ -145,8 +145,8 @@ class _UserRegisterState extends State<UserRegister> {
 
                         // Future the ListenableBuilder() will be released and we
                         // can replace the AnimatedBuilder()
-                        AnimatedBuilder(
-                          animation: _loginRegisterLogic,
+                        ListenableBuilder(
+                          listenable: _loginRegisterLogic,
                           builder: (BuildContext context, Widget? widget) {
                             return ElevatedButton(
                               onPressed: _loginRegisterLogic.loginRegisterInfo
@@ -161,8 +161,8 @@ class _UserRegisterState extends State<UserRegister> {
                           },
                         ),
                         // Show any register errors
-                        AnimatedBuilder(
-                          animation: _loginRegisterLogic,
+                        ListenableBuilder(
+                          listenable: _loginRegisterLogic,
                           builder: (BuildContext context, Widget? widget) {
                             return Visibility(
                               visible: _loginRegisterLogic

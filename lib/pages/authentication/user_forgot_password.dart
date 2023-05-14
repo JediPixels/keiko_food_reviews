@@ -80,8 +80,8 @@ class _UserForgotPasswordState extends State<UserForgotPassword> {
                     },
                   ),
                   const SizedBox(height: 32.0),
-                  AnimatedBuilder(
-                    animation: _loginRegisterLogic,
+                  ListenableBuilder(
+                    listenable: _loginRegisterLogic,
                     builder: (BuildContext context, Widget? widget) {
                       return ElevatedButton(
                         onPressed: _loginRegisterLogic
