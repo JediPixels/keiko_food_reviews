@@ -72,14 +72,21 @@ class LoginRegisterLogic extends ChangeNotifier {
   }
 
   void login({required String email, required String password}) {
-    loginRegisterInfo.buttonLoginRegisterEnabled
-        ? AuthenticationService.signInWithEmailAndPassword(
-                email: email, password: password)
-            .then((uid) => uid)
-            .onError((error, stackTrace) {
-            showLoginErrorWithMessage(message: '$error');
-          })
-        : null;
+    if (loginRegisterInfo.buttonLoginRegisterEnabled) {
+      AuthenticationService.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+    }
+    // For future if we would like to return a value and notify user
+    // loginRegisterInfo.buttonLoginRegisterEnabled
+    //     ? AuthenticationService.signInWithEmailAndPassword(
+    //             email: email, password: password)
+    //         .then((uid) => uid)
+    //         .onError((error, stackTrace) {
+    //         showLoginErrorWithMessage(message: '$error');
+    //       })
+    //     : null;
   }
 
   void register({required String email, required String password}) {

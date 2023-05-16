@@ -95,20 +95,20 @@ class ReviewEntryEditPhoto extends StatelessWidget {
                             position: PopupMenuPosition.under,
                             tooltip: 'Replace Photo',
                             itemBuilder: (BuildContext context) => [
-                              PopupMenuItem<MenuItemsPhoto>(
+                              const PopupMenuItem<MenuItemsPhoto>(
                                 value: MenuItemsPhoto.camera,
                                 child: Row(
-                                  children: const [
+                                  children: [
                                     Icon(Icons.photo_camera),
                                     SizedBox(width: 8.0),
                                     Text('Take a Photo'),
                                   ],
                                 ),
                               ),
-                              PopupMenuItem<MenuItemsPhoto>(
+                              const PopupMenuItem<MenuItemsPhoto>(
                                 value: MenuItemsPhoto.gallery,
                                 child: Row(
-                                  children: const [
+                                  children: [
                                     Icon(Icons.photo_album),
                                     SizedBox(width: 8.0),
                                     Text('Add from Photo Album'),
@@ -162,20 +162,20 @@ class ReviewEntryEditPhoto extends StatelessWidget {
                   icon: const Icon(Icons.add_a_photo_outlined),
                   position: PopupMenuPosition.under,
                   itemBuilder: (BuildContext context) => [
-                    PopupMenuItem<MenuItemsPhoto>(
+                    const PopupMenuItem<MenuItemsPhoto>(
                       value: MenuItemsPhoto.camera,
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.photo_camera),
                           SizedBox(width: 8.0),
                           Text('Take a Photo'),
                         ],
                       ),
                     ),
-                    PopupMenuItem<MenuItemsPhoto>(
+                    const PopupMenuItem<MenuItemsPhoto>(
                       value: MenuItemsPhoto.gallery,
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.photo_album),
                           SizedBox(width: 8.0),
                           Text('Add from Photo Album'),

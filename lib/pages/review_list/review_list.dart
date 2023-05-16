@@ -52,20 +52,20 @@ class _ReviewListState extends State<ReviewList> {
             position: PopupMenuPosition.under,
             tooltip: 'Menu',
             itemBuilder: (BuildContext context) => [
-              PopupMenuItem<MenuItems>(
+              const PopupMenuItem<MenuItems>(
                 value: MenuItems.add,
                 child: Row(
-                  children: const [
+                  children: [
                     Icon(Icons.add),
                     SizedBox(width: 8.0),
                     Text('Add Review'),
                   ],
                 ),
               ),
-              PopupMenuItem<MenuItems>(
+              const PopupMenuItem<MenuItems>(
                 value: MenuItems.signout,
                 child: Row(
-                  children: const [
+                  children: [
                     Icon(Icons.logout),
                     SizedBox(width: 8.0),
                     Text('Sign out'),
