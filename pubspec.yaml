@@ -38,13 +38,13 @@ dependencies:
   image_picker: ^0.8.7+5
   geolocator: ^9.0.2
   geocoding: ^2.1.0
-  geocode: ^1.0.2
+  geocode: ^1.0.3
   flutter_map: ^4.0.0
   latlong2: ^0.8.1
-  firebase_core: ^2.12.0
-  firebase_auth: ^4.6.0
-  cloud_firestore: ^4.7.0
-  firebase_storage: ^11.2.0
+  firebase_core: ^2.13.1
+  firebase_auth: ^4.6.2
+  cloud_firestore: ^4.8.0
+  firebase_storage: ^11.2.2
   cached_network_image: ^3.2.3
   intl: ^0.18.1
 
