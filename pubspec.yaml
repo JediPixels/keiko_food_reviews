@@ -41,10 +41,10 @@ dependencies:
   geocode: ^1.0.3
   flutter_map: ^4.0.0
   latlong2: ^0.8.1
-  firebase_core: ^2.13.1
-  firebase_auth: ^4.6.2
-  cloud_firestore: ^4.8.0
-  firebase_storage: ^11.2.2
+  firebase_core: ^2.14.0
+  firebase_auth: ^4.6.3
+  cloud_firestore: ^4.8.1
+  firebase_storage: ^11.2.3
   cached_network_image: ^3.2.3
   intl: ^0.18.1
 
