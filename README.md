@@ -379,6 +379,10 @@ The following are different resources for your Flutter Development.
 **Flutter Issue Tracker**  
 [https://github.com/flutter/flutter/issues](https://github.com/flutter/flutter/issues)
 
+**Flutter Public Announcements**  
+[https://groups.google.com/g/flutter-announce](https://groups.google.com/g/flutter-announce)
+
+
   <br/>
   <br/>
 
