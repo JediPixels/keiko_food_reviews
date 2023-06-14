@@ -382,6 +382,9 @@ The following are different resources for your Flutter Development.
 **Flutter Public Announcements**  
 [https://groups.google.com/g/flutter-announce](https://groups.google.com/g/flutter-announce)
 
+**Pub - The official package repository for Dart and Flutter apps.**  
+[https://pub.dev](https://pub.dev)
+
 
   <br/>
   <br/>
