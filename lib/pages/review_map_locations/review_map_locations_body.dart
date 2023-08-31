@@ -31,8 +31,8 @@ class ReviewMapLocationsBody extends StatelessWidget {
           ],
         ),
         maxBounds: LatLngBounds(
-          LatLng(-90.0, -180.0),
-          LatLng(90.0, 180.0),
+          const LatLng(-90.0, -180.0),
+          const LatLng(90.0, 180.0),
         ),
       ),
       children: [

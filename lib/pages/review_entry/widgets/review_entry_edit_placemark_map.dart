@@ -79,8 +79,8 @@ class ReviewEntryEditPlacemarkMap extends StatelessWidget {
                       zoom: 16.0,
                       maxZoom: 18.0,
                       maxBounds: LatLngBounds(
-                        LatLng(-90.0, -180.0),
-                        LatLng(90.0, 180.0),
+                        const LatLng(-90.0, -180.0),
+                        const LatLng(90.0, 180.0),
                       ),
                     ),
                     children: [
@@ -181,7 +181,7 @@ class ReviewEntryEditPlacemarkMap extends StatelessWidget {
                                   _positionNotifier.value =
                                       locationArguments.position!;
                                   _mapController.move(
-                                    LatLng(0.0, 0.0),
+                                    const LatLng(0.0, 0.0),
                                     16.0,
                                   );
                                 }

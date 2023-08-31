@@ -274,8 +274,7 @@ Now that we have chosen the development path, how do we create new users, authen
 - Creating the Review Map Locations (business) Logic
 - Creating the Review Map Locations Body widget that implements the Map
 - Connecting the Review Map Locations Logic, App Bar and base layout
-- Adding StreamBuilder to body, connecting to the Review Map Locations Body
-- Update packages, pubspec yaml file
+- Adding StreamBuilder to body, connecting to the Review Map Locations Body and update packages, pubspec yaml file
 
 ## Refactoring
 - Refactoring the User Register, User Login, and User Forgot Password pages AnimatedBuilder to ListenableBuilder
